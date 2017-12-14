@@ -20,9 +20,13 @@ for ($i = 0; $i < $source_string_length; $i++) {
 
 echo ('source_string: ' . implode(' ', $source_string) . "\n");
 
-$input_lengths = str_split($input);
-foreach ($input_lengths as &$input_length) {
-    $input_length = ord($input_length);
+if ($input != '') {
+    $input_lengths = str_split($input);
+    foreach ($input_lengths as &$input_length) {
+        $input_length = ord($input_length);
+    }
+} else {
+    $input_lengths = array();
 }
 
 $input_lengths = array_merge($input_lengths, array(17, 31, 73, 47, 23));
@@ -55,12 +59,27 @@ for ($i = 0; $i < 64; $i++) {
         }
 
         $current_position += $input_length + $skip_size;
-        if ($current_position >= $source_string_length) {
+        while ($current_position >= $source_string_length) {
             $current_position = $current_position - $source_string_length;
         }
         $skip_size++;
     }
 }
 
+$chunks = array_chunk($source_string, 16);
+
+$result_string = '';
+foreach ($chunks as $chunk) {
+    $result = array_shift($chunk);
+
+    foreach ($chunk as $c) {
+        $result = $result ^ $c;
+    }
+
+    $result_string .= dechex($result);
+}
+
+
 echo ('new source string: ' . implode(' ', $source_string) . "\n");
 echo ('result: ' . ($source_string[0] * $source_string[1]) . "\n");
+echo ('result_string: ' . $result_string . "\n");
