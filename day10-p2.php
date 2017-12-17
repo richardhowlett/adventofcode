@@ -22,8 +22,8 @@ echo ('source_string: ' . implode(' ', $source_string) . "\n");
 
 if ($input != '') {
     $input_lengths = str_split($input);
-    foreach ($input_lengths as &$input_length) {
-        $input_length = ord($input_length);
+    foreach ($input_lengths as $index => $input_length) {
+        $input_lengths[$index] = ord($input_length);
     }
 } else {
     $input_lengths = array();
