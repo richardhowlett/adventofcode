@@ -86,7 +86,9 @@ class KnotHash
                 $result = $result ^ $c;
             }
 
-            $result_string .= dechex($result);
+            $hex = dechex($result);
+
+            $result_string .= str_pad(dechex($result), 2, 0, STR_PAD_LEFT);
         }
 
         return $result_string;

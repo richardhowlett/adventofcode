@@ -1,22 +1,23 @@
 <?php
 
 if (isset($argv[1])) {
-    $source_string_length = $argv[1];
+    $input = $argv[1];
 } else {
-    $source_string_length = '256';
+    $input = '';
 }
 
 if (isset($argv[2])) {
-    $input = $argv[2];
+    $disk_rows = $argv[2];
 } else {
-    //$input = 'flqrgnkx-0';
-    $input = '';
+    $disk_rows = '128';
 }
 
 require 'KnotHash.class.php';
 require 'Defragmentor.class.php';
 
-$defragmentor = new Defragmentor(128, $input);
+$defragmentor = new Defragmentor($disk_rows, $input);
+// Part 1
 echo ('used sectors: ' . $defragmentor->getUsedSectorCount() . "\n");
 
-//$defragmentor->getRegionCount();
+// Part 2
+echo ('region count: ' . $defragmentor->getRegionCount() . "\n");
