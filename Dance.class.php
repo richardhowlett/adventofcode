@@ -11,12 +11,15 @@ class Dance
 
     public function dance($dance_moves)
     {
-        $dance_moves = explode(',', $dance_moves);
-
         foreach ($dance_moves as $dance_move) {
             $this->doDanceMove($dance_move);
         }
 
+        //return implode('', $this->dancers);
+    }
+
+    public function getDancePositions()
+    {
         return implode('', $this->dancers);
     }
 
