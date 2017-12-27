@@ -3,10 +3,26 @@
 class Dance
 {
     public $dancers;
+    public $dance_count = 0;
+    public $history;
 
     public function __construct($dancers)
     {
         $this->dancers = $dancers;
+    }
+
+    public function danceLoopDetected()
+    {
+        if (isset($this->history[$this->getDancePositions()])) {
+            return $this->history[$this->getDancePositions()];
+        } else {
+            return null;
+        }
+    }
+
+    public function logDancePositions()
+    {
+        $this->history[$this->getDancePositions()] = $this->dance_count++;
     }
 
     public function dance($dance_moves)
@@ -14,8 +30,6 @@ class Dance
         foreach ($dance_moves as $dance_move) {
             $this->doDanceMove($dance_move);
         }
-
-        //return implode('', $this->dancers);
     }
 
     public function getDancePositions()
