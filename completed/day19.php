@@ -4,12 +4,6 @@ if (isset($argv[1])) {
     $input = $argv[1];
 } else {
     $input = <<<EOT
-     |          
-     |  +--+    
-     A  |  C    
- F---|----E|--+ 
-     |  |  |  D 
-     +B-+  +--+ 
 EOT;
 }
 
