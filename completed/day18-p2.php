@@ -6,9 +6,9 @@ if (isset($argv[1])) {
     $input = '';
 }
 
-require 'classes/DuetRegister.class.php';
-require 'classes/Duet2.class.php';
-require 'classes/DuetCoordinator.class.php';
+require '../classes/DuetRegister.class.php';
+require '../classes/Duet2.class.php';
+require '../classes/DuetCoordinator.class.php';
 
 $duet_coordinator = new DuetCoordinator($input);
 $duet_coordinator->run();

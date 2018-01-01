@@ -18,7 +18,7 @@ if (isset($argv[3])) {
     $input = '';
 }
 
-require 'classes/Dance.class.php';
+require '../classes/Dance.class.php';
 
 for ($i = 0; $i < $number_of_dancers; $i++) {
     $dancers[$i] = chr($i + 97);

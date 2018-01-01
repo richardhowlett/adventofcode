@@ -6,7 +6,7 @@ if (isset($argv[1])) {
     $input = '';
 }
 
-require 'classes/Duet.class.php';
+require '../classes/Duet.class.php';
 
 $duet = new Duet($input);
 $duet->run();
