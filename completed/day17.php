@@ -12,7 +12,7 @@ if (isset($argv[2])) {
     $insertions = '';
 }
 
-require 'SpinLock.class.php';
+require 'classes/SpinLock.class.php';
 
 $lock = new SpinLock($input, 1);
 

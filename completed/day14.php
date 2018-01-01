@@ -12,8 +12,8 @@ if (isset($argv[2])) {
     $disk_rows = '128';
 }
 
-require 'KnotHash.class.php';
-require 'Defragmentor.class.php';
+require 'classes/KnotHash.class.php';
+require 'classes/Defragmentor.class.php';
 
 $defragmentor = new Defragmentor($disk_rows, $input);
 // Part 1

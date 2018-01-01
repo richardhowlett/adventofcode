@@ -12,8 +12,8 @@ if (isset($argv[2])) {
     $input = '';
 }
 
-require 'NumberGenerator.class.php';
-require 'Judge.class.php';
+require 'classes/NumberGenerator.class.php';
+require 'classes/Judge.class.php';
 
 /*
 $generator_values = array(
